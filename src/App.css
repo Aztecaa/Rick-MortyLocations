@@ -1,3 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 .App {
   text-align: center;
+  font-family: "Roboto", sans-serif;
+}
+body {
+  background-color: #272121;
+}
+.header {
+  position: relative;
+}
+.headerImg {
+  width: 100%;
+}
+.input{
+  margin: 20px 0;
+  width: 50%;
+  height: 30px;
+  padding-left: 10px;
+}
+
+.infoBar {
+  padding: 20px;
+  background-color: #3d3535;
+  color: #fff;
+  margin: 10px 30px;
+}
+.infoBarInfo h2 {
+  display: inline;
+  margin: 0px 10px;
+}
+
+.residentList {
+  width: 70%;
+  margin: 0 auto;
+  color: #fff;
+  list-style: none;
+}
+.residentList hr {
+  width: 90%;
+  margin: auto auto;
+}
+.residentItem {
+  grid-template-columns: 1fr 1fr;
+  display: inline-block;
+  border-radius: 10px;
+  background-color: #3d3535;
+  width: 300px;
+  margin: 10px;
+}
+.residentItem img {
+  border-radius: 10px 10px 0 0;
+  width: 100%;
+}
+.residentState {
+  position: relative;
+}
+.residentState span {
+  padding-right: 5px;
+}
+.residentState p {
+  position: absolute;
+  top: 30px;
+  padding: 2px 10px;
+  background-color: #272121;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.infoItem {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-around;
 }

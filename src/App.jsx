@@ -1,25 +1,57 @@
-import { useState, useEffect} from 'react'
-import axios from 'axios'
-import './App.css'
-import Charaters from './components/Charaters'
+import { useState, useEffect } from "react";
+import axios from "axios";
+import "./App.css";
+import ResidentCard from "./components/ResidentCard";
 
 function App() {
-  const [location, setLocation] = useState({})
+  const [location, setLocation] = useState({});
+  const [searchValue, setSearchValue] = useState("");
+
   useEffect(() => {
-    axios.get(`https://rickandmortyapi.com/api/location`)
-    .then((res) => setLocation(res.data.results))
-    }, [])
-  
-    
-  // console.log(location)
+    const random = Math.floor(Math.random() * 126) + 1;
+    axios
+      .get(`https://rickandmortyapi.com/api/location/${random}`)
+      .then((res) => setLocation(res.data));
+  }, []);
+
+  const searchLocation = () => {
+    axios
+      .get(`https://rickandmortyapi.com/api/location/${searchValue}`)
+      .then((res) => setLocation(res.data));
+  };
+
   return (
     <div className="App">
-      <h1>{location[0]?.name}</h1>
-      <h2>{location.residents?.map(resident => (
-        <Charaters resident={resident}/>
-      ))}</h2>
+      <header className="header">
+        <img
+          className="headerImg"
+          src="https://www.futuro.cl/wp-content/uploads/2019/01/rick-morty-web.jpg"
+          alt=""
+        />
+        <input className="input"
+          type="text"
+          placeholder="Whrite the ID"
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
+        />
+        <button className="button" onClick={searchLocation}>Search</button>
+      </header>
+      <div className="infoBar">
+        <h1>{location?.name}</h1>
+        <div className="infoBarInfo">
+          <h2>Type: {location.type}</h2>
+          <h2>Dimension: {location.dimension}</h2>
+          <h2>Population: {location.residents?.length}</h2>
+        </div>
+      </div>
+
+      <ul className="residentList">
+        {location.residents?.map((resident) => (
+          <ResidentCard resident={resident} key={resident.id} />
+        ))}
+      </ul>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
