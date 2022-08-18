@@ -30,11 +30,11 @@ function App() {
         />
         <input className="input"
           type="text"
-          placeholder="Whrite the ID"
+          placeholder="Write the ID"
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
         />
-        <button className="button" onClick={searchLocation}>Search</button>
+        <button className="button" onClick={searchLocation}><i class="fa-solid fa-magnifying-glass"></i></button>
       </header>
       <div className="infoBar">
         <h1>{location?.name}</h1>
@@ -44,12 +44,14 @@ function App() {
           <h2>Population: {location.residents?.length}</h2>
         </div>
       </div>
-
       <ul className="residentList">
         {location.residents?.map((resident) => (
           <ResidentCard resident={resident} key={resident.id} />
         ))}
       </ul>
+      <footer>
+        <h6>Hecho por: Ignacio G Escudero</h6>
+      </footer>
     </div>
   );
 }

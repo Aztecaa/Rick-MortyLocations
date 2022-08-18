@@ -10,12 +10,14 @@ const ResidentCard = ({ resident }) => {
 
   console.log(residentItem);
 
+  const status = residentItem.status;
+
   return (
     <li className="residentItem">
       <div className="residentState">
       <img src={residentItem.image} alt="" />
         <p>
-          <span>◉</span>State: {residentItem.status}
+          <span style={({color: status === "Alive" ? 'lightgreen' : status === 'Dead' ? 'red' : 'gray'})}>◉</span>State: {residentItem.status}
         </p>
       </div>
         <h2>{residentItem.name}</h2>
