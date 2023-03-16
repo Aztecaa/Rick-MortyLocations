@@ -4,7 +4,7 @@
 }
 .App {
   text-align: center;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 body {
   background: #05292e;
@@ -14,10 +14,12 @@ body {
   position: relative;
 }
 .headerImg {
-  position: static;
+  max-height: 500px;
+  object-fit: cover;
+  object-position: bottom;
   width: 100%;
-  min-width: 380px;
 }
+
 .input {
   background: linear-gradient(to top, #051b1f, #0c2929, transparent);
   border: 1px solid #fff;
@@ -28,7 +30,7 @@ body {
   height: 30px;
   padding-left: 10px;
 }
-.input:focus{
+.input:focus {
   box-shadow: 0 0 8px;
 }
 
@@ -53,7 +55,7 @@ button i {
   margin: 10px;
   color: #fff;
 }
-button:hover{
+button:hover {
   text-shadow: 0 0 8px, 0 0 16px, 0 0 32px;
 }
 
@@ -72,7 +74,7 @@ button:hover{
   display: inline-block;
   border-radius: 10px;
   background-color: #062226;
-  width: 300px;
+  max-width: 300px;
   margin: 10px;
 }
 .residentItem img {
